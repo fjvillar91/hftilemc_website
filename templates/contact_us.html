@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/screensize.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
+    
+    <p style="float: right;" class="size">Call Us: (646) 299 9274</p>
+    
+    <div style="width: 100%;">
+        <h2>Email Us</h2>
+        <h3>Free Quotes!</h3>
+        {% if success %}
+            <p>Thank you for your message. We'll get back to you shortly.</p>
+        {% else %}
+            {% for message in form.name.errors %}
+                <div class="flash">{{ message }}</div>
+            {% endfor %}
+     
+            {% for message in form.email.errors %}
+                <div class="flash">{{ message }}</div>
+            {% endfor %} 
+            {% for message in form.subject.errors %}
+                <div class="flash">{{ message }}</div>
+            {% endfor %}
+            {% for message in form.message.errors %}
+                <div class="flash">{{ message }}</div>
+            {% endfor %}
+     
+            <form action="{{ url_for('contact_us') }}" method=post>
+                {{ form.hidden_tag() }}
+
+                {{ form.name.label }}
+                {{ form.name (placeholder="Please your first and last name")}}
+
+                {{ form.email.label }}
+                {{ form.email (placeholder="Please provide an email address")}}
+
+                {{ form.subject.label }}
+                {{ form.subject (placeholder="Please provide a subject line for the email")}}
+
+                {{ form.message.label }}
+                {{ form.message (placeholder="Please provide a message concerning your inquiry")}}
+
+                {{ form.submit }}
+            </form>
+        {% endif %}
+    </div>
+{% endblock %}

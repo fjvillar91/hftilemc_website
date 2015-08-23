@@ -1,0 +1,40 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}H&amp;F Tile Marble Corp.{% endblock %}
+{% block navbar %}
+<nav class="navbar navbar-inverse" role="navigation"> <!-- navbar-fixed-top -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle Navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">H&amp;F</a>
+    </div>
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li><a href="/">About Us</a></li>
+            <li><a href="gallery">Gallery</a></li> <!-- A page needs to be created -->
+            <li><a href="contact_us">Contact Us</a></li>
+        </ul>
+    </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="page-header">
+        {% block page_content %}{% endblock %}
+    </div>
+</div>
+
+
+<footer>
+    {% block footer %}
+        <h6>&copy; H&amp;F Tile Marble Corp {{year}}</h6>
+    {% endblock %}
+</footer>
+
+{% endblock %}
+
+
