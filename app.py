@@ -9,13 +9,13 @@ from flask.ext.mail import Message, Mail
 mail = Mail()
 
 app = Flask(__name__)
-app.secret_key = 'MO\xda\xcf\xde\xbc\/x81Z\xe2\xb0\/uMI)\x9a\xd6"\/rg\/x06\xff\/x91w'
+app.secret_key = ''
 
 app.config["MAIL_SERVER"] = "smtp.gmail.com"
 app.config["MAIL_PORT"] = 465
 app.config["MAIL_USE_SSL"] = True
-app.config["MAIL_USERNAME"] = 'fjvillar91@hftilemc.com'
-app.config["MAIL_PASSWORD"] = 'Facundo10'
+app.config["MAIL_USERNAME"] = ''
+app.config["MAIL_PASSWORD"] = ''
 
 mail.init_app(app)
 
@@ -54,7 +54,7 @@ def contact_us():
             flash('All fields are required.')
             return render_template('contact_us.html', form=form)
         else:
-          msg = Message(form.subject.data + " (ESTIMATE EMAIL)", sender='contact@example.com', recipients=['fjvillar91@hftilemc.com'])
+          msg = Message(form.subject.data + " (ESTIMATE EMAIL)", sender='contact@example.com', recipients=[''])
           msg.body = "Client Name: {0}\nClient Email: {1}\nMessage:\n\n{2}".format(form.name.data, form.email.data, form.message.data)
           mail.send(msg)
 
